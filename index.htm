@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Game 2</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="#" id="stepOne">
+        <h1>Welcome to the game</h1>
+        <input type="text" id="player1" class="name" required maxlength="15" placeholder="Player I" />
+        <input type="text" id="player2" class="name" required maxlength="15" placeholder="Player II" />
+        <button onclick="start()">Start Game</button>
+    </form>
+    <form action="#" id="score">
+        <h3>Score:</h3>
+        <p id="playerOneName"></p>
+        <p id="playerOneNameScore"></p>
+        <p id="playerTwoName"></p>
+        <p id="playerTwoNameScore"></p>
+    </form>
+    <table></table>
+
+    <script>
+        document.getElementById("playerOneNameScore").innerHTML = "0";
+        document.getElementById("playerTwoNameScore").innerHTML = "0";
+        document.getElementsByTagName("table")[0].style.display = "none";
+        document.getElementById("score").style.display = "none";
+
+        let X = "X";
+        let O = "O";
+        let say = 1;
+        let M = [];
+        let player1 = [X, '']
+        let player2 = [O, '']
+        let resultPlayerOne = 0;
+        let resultPlayerTwo = 0;
+        Massiv();
+        Qur();
+
+        function start() {
+                document.getElementById("stepOne").style.display = "none";
+                document.getElementsByTagName("table")[0].style.display = "";
+                document.getElementById("score").style.display = "";
+                player1 = document.getElementsByTagName("input")[0].value;
+                player2 = document.getElementsByTagName("input")[1].value;
+                document.getElementById("playerOneName").innerHTML = `${player1}`;
+                document.getElementById("playerTwoName").innerHTML = `${player2}`;
+        }
+
+        function Massiv() {
+            for (let i = 0; i < 3; i++) {
+                M[i] = [];
+            }
+        }
+        
+        function clr() {
+            for(let i = 0; i < 0; i++){
+                for(let j = 0; j < 0; j++) {
+                    M[i][j] = [];
+                }
+            }
+        }
+
+        function Qur() {
+            let tbl = "";
+            for (let i = 0; i < 3; i++) {
+                tbl += `<tr>`;
+                for (let j = 0; j < 3; j++) {
+                    M[i][j] = M[i][j] == undefined ? "" : M[i][j];
+                    tbl += `<td onclick="Tikla(${i},${j})">${M[i][j]}</td>`;
+                }
+                tbl += `</tr>`;
+            }
+            document.getElementsByTagName("table")[0].innerHTML = tbl;
+        }
+
+        function Tikla(i, j) {
+            if (M[i][j] == "") {
+                if (say % 2 == 1) {
+                    M[i][j] = X;
+                } else {
+                    M[i][j] = O;
+                }
+                say++;
+                setTimeout(Yoxla, 200);
+                Qur();
+            }
+        }
+
+        function Yoxla() {
+            for (let i = 0; i < 3; i++) {
+                if (M[i][0] == M[i][1] && M[i][1] == M[i][2] && M[i][0] != "") {
+                    alert(player1 + " Uddun");
+                    resultPlayerOne++;
+                    document.getElementById("playerOneNameScore").innerHTML = `${resultPlayerOne}`;
+                    clr();
+                }
+            }
+
+            for (let i = 0; i < 3; i++) {
+                if (M[0][i] == M[1][i] && M[1][i] == M[2][i] && M[0][i] != "") {
+                    alert(player2 + " Uddun");
+                    resultPlayerTwo++;
+                    document.getElementById("playerTwoNameScore").innerHTML = `${resultPlayerTwo}`;
+                    clr();
+                }
+            }
+
+            if (M[0][0] == M[1][1] && M[1][1] == M[2][2] && M[0][0] != "") {
+                alert(M[0][0] + " Uddun");
+            }
+            if (M[0][2] == M[1][1] && M[1][1] == M[2][0] && M[0][2] != "") {
+                alert(M[0][2] + " Uddun");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin-ext');
+
+:root {
+    --fontRale: 'Raleway', sans-serif;
+}
+
+body {
+    background-image: url("img/bird.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+}
+
+table {
+    margin: auto;
+}
+
+table,
+td {
+    border: 2px solid #000;
+    border-collapse: collapse;
+}
+
+td {
+    background-color: #fff;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+#name {
+    width: 200px;
+    height: 27px;
+    border-radius: 11px;
+    border: none;
+    outline: none;
+    font: 300 1em var(---fontRale);
+    margin: auto;
+    margin-top: 15px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.623);
+}
+
+#stepOne {
+    background-color: #000;
+    width: 550px;
+    height: 250px;
+    border-radius: 50px;
+    margin: auto;
+}
+
+#stepOne h1 {
+    margin-top: 10px;
+    text-align: center;
+    font: 400 1.5em var(--fontRale);
+    color: red;
+    text-transform: uppercase;
+}
+
+#stepOne .name {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    text-align: center;
+    color: red;
+    font: 700 1em var(--fontRale);
+    outline: none;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#stepOne .name::placeholder {
+    color: red;
+    font: 700 1em var(--fontRale);
+}
+
+#stepOne button {
+    display: block;
+    margin: auto;
+    background-color: red;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 47px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000;
+    font: 500 1.375em var(--fontRale);
+    margin-top: 30px;
+}
+
+#score {
+    background-color: #000;
+    width: 400px;
+    height: 200px;
+    border-radius: 50px;
+    margin: auto;
+    position: absolute;
+    right: 45px;
+    top: 35px;
+}
+
+#score h3 {
+    display: block;
+    color: red;
+    font: 700 2em var(--fontRale);
+    text-align: center;
+    text-decoration: underline;
+}
+
+#score p {
+    font: 500 1.5em var(--fontRale);
+    color: red;
+}
